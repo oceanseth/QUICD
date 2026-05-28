@@ -1,0 +1,62 @@
+{
+  "name": "quicd",
+  "version": "0.1.0",
+  "description": "Serverless, end-to-end-encrypted, one-to-many data delivery over QUIC. A BitTorrent-style swarm protocol for live media and bulk data with tit-for-tat bandwidth negotiation and no central server.",
+  "type": "module",
+  "license": "CPAL-1.0",
+  "author": "VoiceCert, Inc.",
+  "keywords": [
+    "quic",
+    "p2p",
+    "peer-to-peer",
+    "webtransport",
+    "mesh",
+    "swarm",
+    "e2e",
+    "end-to-end-encryption",
+    "decentralized",
+    "live-streaming",
+    "tit-for-tat",
+    "gossip",
+    "datagram"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./transports/node": {
+      "types": "./dist/transports/node.d.ts",
+      "import": "./dist/transports/node.js"
+    },
+    "./transports/webtransport": {
+      "types": "./dist/transports/webtransport.d.ts",
+      "import": "./dist/transports/webtransport.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "skill"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voicecert/quicd.git"
+  }
+}
