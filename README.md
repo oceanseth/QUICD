@@ -76,17 +76,29 @@ The long version, including the wire format and state machines, is in
 
 ## Install
 
+Not yet published to npm — install from git (the `prepare` hook builds it on
+install):
+
 ```bash
-npm install quicd
+npm install github:oceanseth/QUICD
 ```
 
-Requires Node.js ≥ 20 for the native QUIC transport. In the browser, QUICD runs
-over WebTransport/WebRTC via a transport adapter (see
-[Transports](#transports)).
+Then add the Claude skill to your project so your agent knows how to use it:
 
-> **Status: alpha / design-complete.** The protocol and public API are specified
-> and the package surface is stable enough to build against. Transport wiring is
-> landing incrementally — see the [roadmap](docs/PRODUCT_SPEC.md#9-roadmap).
+```bash
+npx quicd-install-skill        # writes ./.claude/skills/quicd/SKILL.md
+```
+
+Requires Node.js ≥ 20. The native QUIC transport targets Node / Electron-main;
+browser code uses the WebTransport/WebRTC adapter (see [Transports](#transports)).
+
+> **Status: alpha / design-complete — does not move bytes yet.** The protocol,
+> public API, and types are stable enough to build against, and the Claude skill
+> will produce correct integration code. But transport wiring (milestone **M1**)
+> is not implemented: calls like `QUICD.create`/`channel.push` currently throw
+> `NotImplementedError` tagged with the milestone they land in. Integrate and
+> typecheck now; runtime delivery arrives with M1. See the
+> [roadmap](docs/PRODUCT_SPEC.md#9-roadmap).
 
 ---
 

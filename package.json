@@ -43,13 +43,19 @@
   "files": [
     "dist",
     "docs",
-    "skill"
+    "skill",
+    "scripts/install-skill.mjs"
   ],
+  "bin": {
+    "quicd-install-skill": "scripts/install-skill.mjs"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "node --test",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "install-skill": "node scripts/install-skill.mjs"
   },
   "devDependencies": {
     "typescript": "^5.5.0",
@@ -57,6 +63,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/voicecert/quicd.git"
+    "url": "https://github.com/oceanseth/QUICD.git"
   }
 }
